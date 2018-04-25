@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class = "main">
+    <h1>Address</h1>
+    <div class = "dis">
+    <table>
+        <tr>
+          <th>Name</th>
+          <th>Door no</th>
+          <th>Street</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Code</th>
+          <th colspan="3"></th>
+        </tr>
+
+        <% @addrs.each do |addr| %>
+          <tr>
+            <td><%= link_to addr.orderable.name, addr.orderable.name %></td>
+            <td><%= addr.door_no %></td>
+            <td><%= addr.street %></td>
+            <td><%= addr.city %></td>
+            <td><%= addr.state %></td>
+            <td><%= addr.code %></td>
+            <td><%=  %></td>
+            <td><%= link_to 'Edit', edit_addr_path(addr) %></td>
+          </tr>
+        <% end %>
+    </table>
+      </div>
+    </div>
