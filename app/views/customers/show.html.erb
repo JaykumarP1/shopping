@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<div>
+  <strong>Name:</strong>
+  <%= @customer.name %>
+  <br>
+  <h2>Order details</h2>
+  <table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Shop</th>
+      <th>Payment mode</th>
+      <th>Dop</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+   <% @customer.orders.each_with_index do |ord| %>
+   <td><%= link_to ord.product.name, ord %></td>
+   <td><%= link_to ord.shop.name, ord %></td>
+   <td><%= ord.payment_mode%></td>
+   <td><%= ord.DOP %></td>
+   <% end %>
+   </tbody>
+</table>
+</div>
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>
